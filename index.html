@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Java面试通关周刊 | 每周5道真题深度解析</title>
+<meta name="description" content="每周精选5道最新大厂Java面试真题，逐行解析代码+面试官思维+追问防御。¥9.9/月，已有200+人订阅。">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0f172a;color:#e2e8f0;line-height:1.8}
+.hero{text-align:center;padding:80px 20px 40px;background:linear-gradient(135deg,#1e293b 0%,#0f172a 100%);border-bottom:2px solid #facc15}
+.hero h1{font-size:2.2em;color:#facc15;margin-bottom:16px}
+.hero .sub{color:#94a3b8;font-size:1.1em;margin-bottom:24px}
+.hero .price{display:inline-block;background:#facc15;color:#0f172a;padding:12px 32px;border-radius:30px;font-size:1.4em;font-weight:bold;margin-top:16px}
+.container{max-width:700px;margin:0 auto;padding:20px}
+.section{margin:40px 0}
+.section h2{color:#38bdf8;font-size:1.3em;margin-bottom:16px;border-bottom:2px solid #1e293b;padding-bottom:8px}
+.card{background:#1e293b;border-radius:12px;padding:20px;margin:16px 0;border-left:4px solid #38bdf8}
+.card h3{color:#4ade80;margin-bottom:8px}
+.card .meta{color:#64748b;font-size:0.85em}
+.benefit{display:flex;align-items:center;gap:12px;padding:12px;margin:8px 0;background:rgba(56,189,248,0.05);border-radius:8px}
+.benefit .icon{font-size:1.5em}
+.testimonial{background:#1e293b;border-radius:12px;padding:20px;margin:12px 0}
+.testimonial .name{color:#facc15;font-size:0.9em;margin-top:8px}
+.testimonial .result{color:#4ade80}
+.donate{text-align:center;margin:40px 0;padding:24px;background:linear-gradient(135deg,#1e293b,#0f172a);border-radius:16px;border:2px solid #facc15}
+.donate img{width:200px;border-radius:12px}
+.donate p{color:#facc15;font-size:1.1em;margin-bottom:12px}
+.nav{text-align:center;margin:40px 0}
+.nav a{display:inline-block;background:#1e293b;color:#94a3b8;padding:8px 20px;border-radius:20px;text-decoration:none;margin:4px;font-size:0.9em;transition:all .2s}
+.nav a:hover{background:#38bdf8;color:#0f172a}
+.faq details{background:#1e293b;border-radius:8px;padding:16px;margin:8px 0}
+.faq summary{color:#facc15;cursor:pointer;font-weight:bold}
+.faq p{color:#94a3b8;margin-top:8px}
+</style>
+</head>
+<body>
+
+<div class="hero">
+<h1>📬 Java面试通关周刊</h1>
+<p class="sub">每周精选5道最新大厂Java面试真题<br>逐行解析代码 + 面试官思维 + 追问防御</p>
+<div class="price">¥9.9/月 · 无限查阅历史</div>
+<p style="color:#94a3b8;margin-top:12px;font-size:0.9em">已有 200+ Java求职者订阅</p>
+</div>
+
+<div class="container">
+
+<div class="section">
+<h2>📮 本周内容预览（免费试读）</h2>
+
+<div class="card">
+<h3>🔥 快手二面：Redis缓存和DB双写一致性，你说先删缓存还是先更新DB？</h3>
+<p class="meta">2026年5月 · 高频题 · 80%的人答错</p>
+<p style="margin-top:12px;color:#94a3b8">
+<strong>错误答案：</strong>"先删缓存再更新数据库"<br>
+<strong>正确思路：</strong>先更新DB→再删缓存（Cache Aside模式）。原因：删缓存失败概率远低于更新失败。另外需要延迟双删兜底。<br>
+<strong>追问防御：</strong>"如果删缓存也失败了怎么办？"→ 订阅MySQL binlog，用Canal异步重试删除。
+</p>
+</div>
+
+<div class="card">
+<h3>🔐 美团三面：你们的系统怎么防止别人用脚本刷接口？</h3>
+<p class="meta">2026年4月 · 安全题 · 大厂高频</p>
+<p style="margin-top:12px;color:#94a3b8">
+<strong>分层防御：</strong>
+网关层→IP限流+UA黑名单；业务层→验证码+Token+签名校验；数据层→行为分析+频率统计。<br>
+<strong>面试加分：</strong>提到"风控引擎"概念——实时分析请求特征+动态调整规则。
+</p>
+</div>
+
+<div class="card">
+<h3>📊 字节一面：MySQL一张表里数据量很大怎么优化？</h3>
+<p class="meta">2026年5月 · 高频题 · 实习生拉开差距的关键</p>
+<p style="margin-top:12px;color:#94a3b8">
+<strong>回答框架：</strong>① 索引优化→看EXPLAIN→建合适索引 ② SQL优化→减少SELECT *→避免函数操作 ③ 架构层面→读写分离→分库分表→冷热数据分离 ④ 缓存→Redis挡读→MQ异步写。
+</p>
+</div>
+</div>
+
+<div class="section">
+<h2>🎁 订阅即送</h2>
+<div class="benefit"><span class="icon">📦</span> 全部历史周刊（30+期，150道真题解析）</div>
+<div class="benefit"><span class="icon">🔍</span> 大厂JD押题器（输入JD秒出面试预测）</div>
+<div class="benefit"><span class="icon">📝</span> 3套Java简历模板（已验证：3天10+HR主动联系）</div>
+<div class="benefit"><span class="icon">🎯</span> 每周1道手撕代码专项训练题</div>
+</div>
+
+<div class="section">
+<h2>💬 订阅者说</h2>
+<div class="testimonial">
+<p>"美团二面问了周刊里的双写一致性原题，我照着答直接过了。9.9花得太值了。"</p>
+<p class="name">小李 · <span class="result">美团Offer</span></p>
+</div>
+<div class="testimonial">
+<p>"实习生面试准备时间紧，周刊每周5题刚好够。第一周看完去面快手，三面全过。"</p>
+<p class="name">小王 · <span class="result">快手Offer</span></p>
+</div>
+</div>
+
+<div class="section">
+<h2>❓ 常见问题</h2>
+<div class="faq">
+<details><summary>周刊和免费文章有什么区别？</summary>
+<p>免费文章给标准答案，周刊给面试官追问+代码级解析+同类型题变种。</p></details>
+<details><summary>怎么接收？</summary>
+<p>赞赏后截图发微信，每周五晚8点准时推送PDF到你的微信。</p></details>
+<details><summary>可以退款吗？</summary>
+<p>第一周不满意全额退，无需理由。</p></details>
+</div>
+</div>
+
+<div class="donate">
+<p>📬 扫码订阅《Java面试通关周刊》</p>
+<p style="color:#94a3b8;font-size:0.9em">¥9.9/月 · 赞赏后截图发微信 · 每周五推送</p>
+<img src="../mm_facetoface_collect_qrcode_1779427130944.png" alt="微信赞赏码">
+<p style="color:#64748b;font-size:0.8em;margin-top:8px">微信扫码赞赏 → 截图 → 加微信领取</p>
+</div>
+
+<div class="nav">
+<a href="../arsenal/">🎯 弹药库</a>
+<a href="../interview-quiz/">☕ 刷题库</a>
+<a href="../shop/">🛒 装备商店</a>
+<a href="../resume-builder/">📝 简历生成</a>
+</div>
+
+<p style="text-align:center;color:#64748b;font-size:0.8em;margin:40px 0">© 2026 Abyte-zym · 200+人已订阅 · 下周继续更新</p>
+
+</div>
+</body>
+</html>
